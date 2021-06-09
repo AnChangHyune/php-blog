@@ -1,5 +1,5 @@
 <?php
-include_once 'db.php';
+include_once '../start.php';
 ?>
 <?php
 $_REQUEST['title'] = mysqli_real_escape_string($dbLink, $_REQUEST['title']);
@@ -17,4 +17,4 @@ mysqli_query($dbLink, $sql);
 <script>
 alert('새 글이 작성되었습니다.');
 location.replace('/article_list.php');
-</script> 
+</script>

@@ -9,4 +9,4 @@ $pageTitle = '<i class="fas fa-home"></i> <span>HOME</span>';
   </div>
 </section> 
 
-<?php include_once 'footer.php'; ?> 
+<?php include_once 'footer.php'; ?>

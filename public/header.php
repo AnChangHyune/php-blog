@@ -1,14 +1,14 @@
 <?php
-include_once 'db.php';
+include_once '../start.php';
 ?>
 <!doctype html>
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<title>홍길동 블로그 - <?=$pageTitle?></title>
-
+	<title>홍길동 블로그 - <?=strip_tags($pageTitle)?></title>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-  <link rel="stylesheet" href="/reousrce/app.css">
+  <link rel="stylesheet" href="/resource/app.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -36,6 +36,7 @@ include_once 'db.php';
               <span>LIST</span>
             </a>
           </li>
+          <?php if ( App__actorIsLogined() ) { ?>
           <li>
             <a href="/write_article.php" class="flex flex-ai-c height-100p hover-underline">
               <i class="fas fa-pen"></i>
@@ -43,6 +44,25 @@ include_once 'db.php';
               <span>WRITE</span>
             </a>
           </li>
+          <?php } ?>
+          <?php if ( !App__actorIsLogined() ) { ?>
+          <li>
+            <a href="/login.php" class="flex flex-ai-c height-100p hover-underline">
+              <i class="fas fa-sign-in-alt"></i>
+              &nbsp;
+              <span>LOGIN</span>
+            </a>
+          </li>
+          <?php } ?>
+          <?php if ( App__actorIsLogined() ) { ?>
+          <li>
+            <a href="/do_logout.php" class="flex flex-ai-c height-100p hover-underline">
+              <i class="fas fa-sign-out-alt"></i>
+              &nbsp;
+              <span>LOGOUT</span>
+            </a>
+          </li>
+          <?php } ?>
         </ul>
       </nav>
     </div>
@@ -52,4 +72,4 @@ include_once 'db.php';
     <h1 class="con">
       <?=$pageTitle?>
     </div>
-  </div> 
+  </div>
